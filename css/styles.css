@@ -1,6 +1,8 @@
-*{
-    box-sizing: border-box;
+:root{
+    --primary:#0077b6;
+    --secondaty:#9867C5;
 }
+
 /*resets*/
 body,p,a,ul,li{
     margin: 0;
@@ -13,16 +15,14 @@ li{
 
 /*base styles*/
 body{
-    overflow-x: none;
+    overflow-x: hidden;
     font-family: "Varela", sans-serif;
-    font-weight: 400;
-    font-style: normal;
 }
 
 .button{
     background: none;
-    border: 2px solid #0077b6;
-    color: #9867C5;
+    border: 2px solid var(--primary);
+    color: var(--primary);
     padding: 6px 12px;
     border-radius: 20px;
     text-transform: uppercase;
@@ -31,52 +31,72 @@ body{
     font-size: 1em; 
 }
 
-a{
-    color: blue;
-    text-decoration: none;
+.button:hover{
+    color: #222;
+    background: var(--primary);
 }
 
-h1{
-    font-size: 30px;
-    font-weight: 600;
-    margin: 10px 0;
-    line-height: 1.2;
+input,textarea{
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px 16px;
+    border-radius: 20px;
+    border: 2px solid #9893D8;
+    color: #f2f2f2;
+    font-size: 1em;
 }
 
-.container{
-    margin: 0;
-    max-width: 1200px;
-    overflow: visible;
+
+h1,h2,h3,h4{
+    color: #454545;
+    font-weight: normal;
+    line-height: 1.4em;
+}
+
+p,a,li{
+    color: #454545;
+    line-height: 1.4em;
+    font-size: 1em;
+}
+
+h1,h3{
+    font-size: 1.2em;
+}
+
+h2{
+    font-size: 1.6em;
+}
+
+h4{
+    font-size: 1.1em;
+}
+
+.leading{
+    font-size: 1.1em;
+}
+
+/* Mobile Styles */
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(8,1fr);
+    gap: 10px;
+    box-sizing: border-box;
 }
 
 .navbar{
-    background-color: aquamarine;
-    height: 70px;
-    padding: 0 30px;
+    margin: 0 20px;
 }
 
 .navbar h1{
-    font-size: 30px;
-    font-weight: 300;
-    margin: 10px 0;
-    line-height: 1.2;
-}
-
-.navbar .flex{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
+    grid-column: 1/4;
+    grid-row: 1;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--primary);
+    display: inline-block;
 }
 
 .navbar ul{
-    display: flex;
-}
-
-.navbar a{
-    color: white;
-    padding: 9px;
-    margin: 0 10px;
+    display: none;
 }
 
 .navbar a:hover{
@@ -84,21 +104,168 @@ h1{
     border-bottom: 3px solid #9867C5;
 }
 
-input:focus + label{
-    transform: translateY(-20px);
-    color: #0077b6;
+#hero{
+    padding: 0 20px 20px 20px;
 }
 
-input:focus{
+.hero-text{
+    grid-column: 1/6;
+}
+
+.hero-text a{
+    margin: 20px 0;
+}
+
+#about{
+    padding: 30px 20px;
+}
+
+#projects{
+    padding: 30px 20px;
+}
+
+#projects h3{
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.projects{
+    margin: 20px 0;
+}
+
+.projects a{
+    grid-column: 1/9;
+    display: flex;
+    margin: 20px 0;
+}
+
+.projects a *{
+    margin: 0 20px;
+    max-width: 40%;
+    align-self: center;
+}
+
+.projects h4{
+    color: #9994f7;
+}
+
+#skills{
+    padding: 30px 20px;
+}
+
+#skill h3{
+    text-align: center;
+}
+
+#skills ul{
+    margin: 40px 0;
+}
+
+#skills li{
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    grid-column: span 4;
+    text-align: center;
+}
+
+#skills p{
+    text-align: center;
+    margin: 0 20px;
+}
+
+#contact{
+    padding: 30px 20px;
+    background: #080936;
+}
+
+#contact h3, #contact p{
+    margin-bottom: 0;
+    text-align: center;
+}
+
+#contact form{
+    width: 80%;
+    max-width: 400px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+#contact input, #contact textarea{
+    width: 100%;
+    margin: 10px 0;
+}
+
+#contact textarea{
+    max-width: 100%;
+    height: 200px;
+}
+
+#contact .button{
+    margin-top: 10px;
+}
+
+#contact input:focus, #contact textarea:focus{
     outline-color: #0077b6;
 }
 
-/* Mobile Styles */
-@media screen and (min-width){
-
+footer{
+    padding: 30px 20px;
 }
+
+footer .copyright{
+    grid-column: 1/3;
+    font-size: 0.8em;
+}
+
+footer .social{
+    grid-column: 7/9;
+    display: flex;
+    justify-content: flex-end;
+}
+footer li{
+    margin: 0 6px;
+}
+
+footer img{
+  width: 20px;
+}
+
 /* Small tablets Styles*/
 @media screen and (min-width:620px){
+    .hero-text{
+        grid-column: 1/5;
+    }
+    .hero-img{
+        grid-column: 5/9;
+    }
+    .hero-img img{
+        width: 100%;
+    }
+    .projects{
+        margin-top: 40px;
+    }
+    .projects a{
+        grid-column: span 4;
+        display: block;
+        margin: 20px 0;
+    }
+    .projects a:last-child{
+        grid-column: 3/7;
+    }
+    .projects a *{
+        margin: 10px;
+        max-width: 60%;
+        margin: 10px 20%;
+    }
+    .projects h4{
+        text-align: center;
+    }
+    #skills{
+        padding: 30px 100px;
+    }
+    footer{
+        background-size: 20%;
+    }
 
 }
 /* Large Tablets & Laptops Styles */
@@ -106,8 +273,107 @@ input:focus{
     body{
         font-size: 18px;
     }
+    .grid{
+        max-width: 1060px;
+        margin: 0 auto;
+        width: 100%;
+    }
+    .leading{
+        margin: 20px 0;
+    }
+    .navbar{
+        padding: 0 20px;
+    }
+    .navbar h1{
+        grid-column: 1/3;
+    }
+    .navbar ul{
+        display: flex;
+        grid-column: 6/9;
+        justify-content: flex-end;
+        align-self: center;
+    }
+    .navbar li{
+        margin-left: 20px;
+    }
+    .hero-text{
+        grid-column: 1/5;
+        align-self: center;
+    }
+    #hero{
+        padding-bottom: 40px;
+    }
+    .projects a:nth-child(1){
+        grid-column: 2/4;
+    }
+    .projects a:nth-child(2){
+        grid-column: 4/6;
+        padding-top: 140px;
+    }
+    .projects a:nth-child(3){
+        grid-column: 6/8;
+    }
+    .projects a *{
+        max-width: 80%;
+        margin: 30px 10%;
+    }
+    #skills{
+        padding: 30px 20px;
+    }
+    #skills ul{
+        margin: 40px auto;
+    }
+    #skills li{
+        grid-column: span 2;
+    }
+    #skills p{
+        max-width: 600px;
+        margin: 40px auto;
+    }
+    footer{
+        background-size: 20%;
+        padding: 40px 20px;
+    }
 }
 /* Desktop Styles*/
 @media screen and (min-width: 1200px){
-    
+    body{
+        font-size: 20px;
+    }
+    .navbar{
+        padding: 0;
+    }
+    #hero, #projects, #skills, #contact{
+        padding: 90px 0;
+    }
+    .leading{
+        margin: 20px 0;
+    }
+    .projects a:nth-child(1){
+        grid-column: 1/3;
+    }
+    .projects a:nth-child(2){
+        grid-column: 4/6;
+        padding-top: 140px;
+    }
+    .projects a:nth-child(3){
+        grid-column: 7/9;
+    }
+    .projects a *{
+        max-width: 100%;
+        margin: 30px 0%;
+    }
+    footer{
+        padding: 80px 0;
+        background-size: 30%;
+    }
+    footer .copyright{
+        grid-column: 1/4;
+    }
+    footer .social{
+        grid-column: 6/9;
+    }
+    footer img{
+        width: 30px;
+    }
 }
