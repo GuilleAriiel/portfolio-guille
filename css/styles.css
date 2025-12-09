@@ -48,7 +48,6 @@ input,textarea{
     padding: 10px 16px;
     border-radius: 20px;
     border: 2px solid #9893D8;
-    color: #f2f2f2;
     font-size: 1em;
 }
 
@@ -117,6 +116,8 @@ h4{
 #hero{
     padding: 0 20px 20px 20px;
     align-items: center;
+    background: #2A7B9B;
+    background: linear-gradient(90deg,rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%);
 }
 
 .hero-text{
@@ -125,6 +126,10 @@ h4{
 
 .hero-text a{
     margin: 20px 0;
+}
+
+.hero-text h2,p{
+    color: #f2f2f2;
 }
 
 .hero-img{
