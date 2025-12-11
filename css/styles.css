@@ -1,7 +1,10 @@
 :root{
     --primary:#0077b6;
     --secondaty:#9867C5;
-    --bodybg: white;
+    --background-color: white;
+    --text-color:white;
+    --link-color:White;
+    --gradient:linear-gradient(90deg,rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%);
 }
 
 html{
@@ -21,20 +24,19 @@ li{
 /*base styles*/
 body{
     overflow-x: hidden;
-    font-family: "Varela", sans-serif;
-    background: #2A7B9B;
-    background: linear-gradient(90deg,rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%);
-}
+    font-family: "Poppins", sans-serif;
+    background: var(--background-color);
+    }
 
 section{
-    background: white;
+    background: #E9EDE6;
     margin: 0 0 30px 0;
 }
 
 .button{
-    background: none;
+    background: var(--primary);
     border: 2px solid var(--primary);
-    color: var(--primary);
+    color: white;
     padding: 6px 12px;
     border-radius: 20px;
     text-transform: uppercase;
@@ -45,9 +47,17 @@ section{
 }
 
 .button:hover{
-    color: white;
-    background: var(--primary);
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    background: none;
     transform: scale(1.08);
+    box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.6);
+}
+
+.button:active{
+    background: var(--primary);
+    color: white;
+    border: white 2px solid;
 }
 
 input,textarea{
@@ -200,7 +210,7 @@ h4{
 
 #skills li{
     padding: 10px;
-    background: rgba(0, 0, 0, 0.2);
+    border: blue solid 2px;
     grid-column: span 4;
     text-align: center;
 }
